@@ -2,10 +2,10 @@
 SecondTest
 add
 add2
-branch2 add-1 1
-branch2 add-2 3
-branch3 add-3 4
-branch1 add1
-branch2 add-2 2
-branch1 add-2 3
-branch2 add-2 2
+branch add1
+branch add2
+branch add3
+branch add4
+branch add5
+branch add6
+branch add7
