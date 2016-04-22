@@ -36,3 +36,4 @@ $ git remote -v 查看远程仓库 -v显示对应的url
 <hr/>
 从远程仓库中抓取与拉取
 $ git fetch [remote-name]
+$ git push origin master
