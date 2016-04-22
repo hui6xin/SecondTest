@@ -26,3 +26,13 @@ $ mv README.md README
 $ git rm README.md
 $ git add README
 <hr/>
+-S，可以列出那些添加或移除了某些字符串的提交。 比如说，你想找出添加或移除了某一个特定函数的引用的提交，你可以这样使用：
+$ git log -Sfunction_name
+<hr/>
+查看 Git 仓库中，2008 年 10 月期间，Junio Hamano 提交的但未合并的测试文件，可以用下面的查询命令：
+$ git log --pretty="%h - %s" --author=gitster --since="2008-10-01" \
+<hr/>
+$ git remote -v 查看远程仓库 -v显示对应的url
+<hr/>
+从远程仓库中抓取与拉取
+$ git fetch [remote-name]
