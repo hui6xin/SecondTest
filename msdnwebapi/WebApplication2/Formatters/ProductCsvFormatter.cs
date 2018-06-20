@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Web;
 using WebApplication2.Models;
 
@@ -16,6 +17,9 @@ namespace WebApplication2.Formatters
         {
             // Add the supported media type.
             SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/csv"));
+            // New code:
+            SupportedEncodings.Add(new UTF8Encoding(encoderShouldEmitUTF8Identifier: false));
+            SupportedEncodings.Add(Encoding.GetEncoding("iso-8859-1"));
         }
 
         public override bool CanReadType(Type type)
@@ -37,7 +41,10 @@ namespace WebApplication2.Formatters
         }
         public override void WriteToStream(Type type, object value, Stream writeStream, HttpContent content)
         {
-            using (var writer = new StreamWriter(writeStream))
+            Encoding effectiveEncoding = SelectCharacterEncoding(content.Headers);
+
+            using (var writer = new StreamWriter(writeStream, effectiveEncoding))
+            //using (var writer = new StreamWriter(writeStream))
             {
                 var products = value as IEnumerable<Product>;
                 if (products != null)
