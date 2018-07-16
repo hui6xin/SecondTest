@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SQLitePCL;
+using SQLite;
 
 namespace WpfApp1
 {
@@ -20,9 +22,21 @@ namespace WpfApp1
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		private SQLiteConnection sqLiteConnection;
 		public MainWindow()
 		{
 			InitializeComponent();
+			//SQLiteConnection.CreateFile(AppDomain.CurrentDomain.BaseDirectory+ "db\\third.db");
+			sqLiteConnection = new SQLiteConnection(AppDomain.CurrentDomain.BaseDirectory + "db\\third.db;"+ "Version = 3; Password = 999999;");
+			//sqLiteConnection = new SQLiteConnection(AppDomain.CurrentDomain.BaseDirectory + "db\\third.db");
+
+
+			//sqLiteConnection.SetPassword("999999");
+
+
+			//sqLiteConnection.ChangePassword("999999");
+
+
 		}
 	}
 }

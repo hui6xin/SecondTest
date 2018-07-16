@@ -28,7 +28,25 @@ namespace HTTPServerLib
             return response;
         }
 
-        public static HttpResponse FromXML(this HttpResponse response, string xmlText)
+	    public static HttpResponse FromWebFile(this HttpResponse response, string fileName)
+	    {
+		    if (!File.Exists(fileName))
+		    {
+			    response.SetContent("<html><body><h1>404 - Not Found</h1></body></html>");
+			    response.StatusCode = "404";
+			    response.Content_Type = "text/html";
+			    return response;
+		    }
+
+		    var content = File.ReadAllText(fileName);
+		    var contentType = GetMimeFromFile(fileName);
+		    response.SetContent(content);
+		    response.Content_Type = contentType;
+		    response.StatusCode = "200";
+		    return response;
+	    }
+
+		public static HttpResponse FromXML(this HttpResponse response, string xmlText)
         {
             response.SetContent(xmlText);
             response.Content_Type = "text/xml";

@@ -77,7 +77,7 @@ namespace HttpServer
                 {
                     //加载静态HTML页面
                     requestFile = Path.Combine(requestFile, "index.html");
-                    response = response.FromFile(requestFile);
+                    response = response.FromWebFile(requestFile);
                     response.Content_Type = "text/html; charset=UTF-8";
                 }
             }
