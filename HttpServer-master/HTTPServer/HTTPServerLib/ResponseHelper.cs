@@ -28,7 +28,7 @@ namespace HTTPServerLib
             return response;
         }
 
-	    public static HttpResponse FromWebFile(this HttpResponse response, string fileName)
+	    public static HttpResponse FromHtmlFile(this HttpResponse response, string fileName)
 	    {
 		    if (!File.Exists(fileName))
 		    {
