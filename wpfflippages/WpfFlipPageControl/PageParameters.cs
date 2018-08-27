@@ -4,6 +4,9 @@ using System.Windows;
 
 namespace WpfFlipPageControl
 {
+	/// <summary>
+	/// 页面参数
+	/// </summary>
     struct PageParameters
     {
         public PageParameters(Size renderSize)
