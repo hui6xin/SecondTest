@@ -1,0 +1,37 @@
+﻿@model netcoreweb.ViewModels.EmployeeListViewModel
+
+@{
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+<body>
+    @{
+        @*@Html.Action("GetAddNewLink");*@
+    }
+    <a href="/Employee/AddNew">
+        Add New
+    </a>
+    <a href="/BulkUpload/Index">BulkUpload</a>
+    @await Component.InvokeAsync("CitySummary");
+    @await Component.InvokeAsync("CityWeather");
+    <hr />
+    <div>
+        <table>
+            <tr>
+                <th>Employee Name</th>
+                <th>Salary</th>
+            </tr>
+            @foreach (var item in Model.Employees)
+            {
+                <tr>
+                    <td>@item.EmployeeName</td>
+                    <td style="background-color: @item.SalaryColor">@item.Salary</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+@{
+    ViewData["Title"] = "Test";
+}
+
+<h2>Test</h2>

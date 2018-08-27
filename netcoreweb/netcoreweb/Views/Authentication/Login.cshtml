@@ -1,0 +1,32 @@
+﻿@model UserDetails
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Login</title>
+</head>
+<body>
+<div>
+    <span style="color: #ffffff">当前用户：@User.Identity.Name</span>
+    @Html.ValidationMessage("CredentialError", new {style = "color:red;"})
+    @using (Html.BeginForm("Login", "Authentication", FormMethod.Post))
+    {
+        @Html.LabelFor(c => c.UserName)
+        @Html.TextBoxFor(x => x.UserName)
+        @Html.ValidationMessageFor(x => x.UserName)
+        <br/>
+        @Html.LabelFor(c => c.Password)
+        @Html.PasswordFor(x => x.Password)
+        <br/>
+
+        <input type="submit" name="BtnSubmit" value="Login"/>
+    }
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>

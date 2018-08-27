@@ -1,0 +1,20 @@
+﻿@using netcoreweb.ViewModels
+@model netcoreweb.ViewModels.BaseViewModel
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@RenderSection("TitleSection", false)</title>
+    @RenderSection("HeaderSection", false)
+</head>
+<body>
+    <div style="text-align: right">
+        Hello, @Model.UserName
+        <a href="/Authentication/Logout">Logout</a>
+    </div>
+    <hr />
+    <div>
+        @RenderBody()
+    </div>
+    @Html.Partial("Footer", Model.FooterData)
+</body>
+</html>
