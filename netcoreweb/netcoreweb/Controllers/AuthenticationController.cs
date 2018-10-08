@@ -19,7 +19,7 @@ namespace netcoreweb.Controllers
 		{
 			//登录授权直接跳转index界面
 			if (HttpContext.User.Identity.IsAuthenticated) return RedirectToPage("Index");
-			return View("Login");
+			return View("Login0");
 		}
 
 		/// <summary>
@@ -81,7 +81,7 @@ namespace netcoreweb.Controllers
 		{
 			if (HttpContext.User.Identity.IsAuthenticated)
 				await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-			return View("Login");
+			return View("Login0");
 		}
 
 		/// <summary>
