@@ -79,7 +79,7 @@ namespace netcoreweb.BusinessLayer
 			{
 				VerifyCodeDictionary.Remove(OldCodeKey);
 			}
-			var length = new Random().Next(4, 7);
+			var length = new Random().Next(4, 6);
 			var newNum = RndNum(length);
 			var newGuid = Guid.NewGuid().ToString();
 			VerifyCodeDictionary.Add(newGuid, new VerifyCodeInfo(newGuid, newNum));
@@ -194,7 +194,7 @@ namespace netcoreweb.BusinessLayer
 					canvas.DrawColor(SKColors.White);//背景色
 					using (var sKPaint = new SKPaint())
 					{
-						sKPaint.TextSize = 16;//字体大小
+						sKPaint.TextSize = 18;//字体大小
 						sKPaint.IsAntialias = true;//开启抗锯齿                   
 						sKPaint.Typeface = SKTypeface.FromFamilyName("微软雅黑", SKTypefaceStyle.Bold);//字体
 						SKRect size = new SKRect();
@@ -231,7 +231,7 @@ namespace netcoreweb.BusinessLayer
 							imageBytes = p.ToArray();
 						}
 					}
-
+					
 
 				}
 			}

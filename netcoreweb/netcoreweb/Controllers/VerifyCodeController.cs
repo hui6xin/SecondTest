@@ -12,18 +12,16 @@ namespace netcoreweb.Controllers
     [Route("api/VerifyCode")]
     public class VerifyCodeController : Controller
     {
-        // GET: api/VerifyCode
-        [HttpGet]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-	    [HttpGet("GetImg/{guid}", Name = "GetGuid")]
+	    [AcceptVerbs("Post",Route = "GetImg/{guid}", Name = "GetGuid")]
 	    public IActionResult Get(string guid)
 	    {
 			var bytes = VerifyCode.GetVerifyBytes(guid);
-		    return File(bytes, "image/png");
+		    return File(bytes, "image/jpeg");
 		}
 
 		[HttpGet("CreateNew/{*oldCodekey}", Name = "CreateNewVerifyCode")]

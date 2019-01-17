@@ -105,7 +105,6 @@
 
         function getVerifyCode() {
             $.ajax({
-                type:"Get",
                 url: "/api/VerifyCode/CreateNew/" + (verifyCodeKey? verifyCodeKey : ""),
                 data:"",
                 dataType:"json",
